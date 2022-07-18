@@ -37,7 +37,10 @@ For instance:
 
 ## Variants
 
-The component supports 4 shape variants.
+The component supports 4 shape variants:
+
+- `text`: represents a single line of a text (you can change the height via font size).
+- `circular`, `rectangular` and `rounded`: provides only a border radius to let you take control on the size of the skeleton.
 
 {{"demo": "Variants.js"}}
 

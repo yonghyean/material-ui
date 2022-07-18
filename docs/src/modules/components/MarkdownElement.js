@@ -23,6 +23,7 @@ const Root = styled('div')(({ theme }) => ({
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
     maxWidth: 'calc(100vw - 32px)',
+    maxHeight: '350px',
     [theme.breakpoints.up('md')]: {
       maxWidth: 'calc(100vw - 32px - 16px)',
     },
@@ -102,7 +103,6 @@ const Root = styled('div')(({ theme }) => ({
     }),
   },
   '& h1, & h2, & h3, & h4': {
-    scrollMarginTop: 'calc(var(--MuiDocs-header-height) + 32px)',
     '& code': {
       fontSize: 'inherit',
       lineHeight: 'inherit',
@@ -258,6 +258,16 @@ const Root = styled('div')(({ theme }) => ({
             ? theme.palette.error[100] ?? '#fff'
             : theme.palette.error[800] ?? theme.palette.text.primary,
       },
+      '& a': {
+        color:
+          theme.palette.mode === 'dark'
+            ? theme.palette.error[100] ?? '#fff'
+            : theme.palette.error[800] ?? theme.palette.text.primary,
+        textDecorationColor: alpha(theme.palette.error.main, 0.4),
+        '&:hover': {
+          textDecorationColor: 'inherit',
+        },
+      },
     },
     '&.MuiCallout-info': {
       color:
@@ -300,6 +310,16 @@ const Root = styled('div')(({ theme }) => ({
             ? theme.palette.success[100] ?? '#fff'
             : theme.palette.success[900] ?? theme.palette.text.primary,
       },
+      '& a': {
+        color:
+          theme.palette.mode === 'dark'
+            ? theme.palette.success[100] ?? '#fff'
+            : theme.palette.success[900] ?? theme.palette.text.primary,
+        textDecorationColor: alpha(theme.palette.success.main, 0.4),
+        '&:hover': {
+          textDecorationColor: 'inherit',
+        },
+      },
     },
     '&.MuiCallout-warning': {
       color:
@@ -320,6 +340,16 @@ const Root = styled('div')(({ theme }) => ({
           theme.palette.mode === 'dark'
             ? theme.palette.warning[100] ?? '#fff'
             : theme.palette.warning[800] ?? theme.palette.text.primary,
+      },
+      '& a': {
+        color:
+          theme.palette.mode === 'dark'
+            ? theme.palette.warning[100] ?? '#fff'
+            : theme.palette.warning[800] ?? theme.palette.text.primary,
+        textDecorationColor: alpha(theme.palette.warning.main, 0.4),
+        '&:hover': {
+          textDecorationColor: 'inherit',
+        },
       },
     },
   },
@@ -382,13 +412,13 @@ const Root = styled('div')(({ theme }) => ({
     position: 'relative',
     '&:hover': {
       '& .MuiCode-copy': {
-        opacity: 1,
+        display: 'block',
       },
     },
   },
   '& .MuiCode-copy': {
     minWidth: 64,
-    opacity: 0,
+    display: 'none',
     backgroundColor: alpha(blueDark[600], 0.5),
     cursor: 'pointer',
     position: 'absolute',
